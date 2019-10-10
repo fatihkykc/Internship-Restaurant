@@ -1,0 +1,39 @@
+﻿@model IEnumerable<RestoranUygulaması.Models.Fiyat>
+
+@{
+    ViewBag.Title = "FiyatGör";
+}
+
+<h2>FiyatGör</h2>
+@if (Session["kul_ad"] != null)
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fiyat1)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fiyat1)
+            </td>
+            @if (Session["kul_ad"] != null)
+            {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.fiyat_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.fiyat_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.fiyat_id })
+            </td>
+            }
+        </tr>
+    }
+
+</table>

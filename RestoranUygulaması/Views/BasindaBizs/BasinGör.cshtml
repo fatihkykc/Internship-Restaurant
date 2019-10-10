@@ -1,0 +1,33 @@
+﻿@model IEnumerable<RestoranUygulaması.Models.BasindaBiz>
+
+@{
+    ViewBag.Title = "BasinGör";
+}
+
+<h2>BasinGör</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.basindan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.basindan)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.basin_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.basin_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.basin_id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<RestoranUygulaması.Models.Yemek>
+
+@{
+    ViewBag.Title = "YemekGör";
+}
+
+<h2>YemekGör</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.yemek_adi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.yemek_adi)
+    </td>
+    <td>
+        @Html.ActionLink("Icindekiler", "IcindekilerGör", "Icindekilers", new { id = item.yem_id }, null) |
+        @Html.ActionLink("Fiyat", "FiyatGör","Fiyats", new { id = item.yem_id }, null) |
+        @Html.ActionLink("Hazirlanis", "HazirlanisGör","Hazirlanis", new { id = item.yem_id }, null)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.yem_id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.yem_id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.yem_id })
+    </td>
+    <td>
+        @Html.ActionLink("HazirlanisEkle", "HazirlanisEkle", "Yemeks", new { id = item.yem_id }, null) |
+        @Html.ActionLink("FiyatEkle", "FiyatEkle","Yemeks", new { id = item.yem_id },null) |
+        @Html.ActionLink("IcindekilerEkle", "IcindekilerEkle","Yemeks", new { id = item.yem_id },null)
+    </td>
+</tr>
+}
+
+</table>

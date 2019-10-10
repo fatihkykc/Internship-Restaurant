@@ -1,0 +1,39 @@
+﻿@model IEnumerable<RestoranUygulaması.Models.Icindekiler>
+
+@{
+    ViewBag.Title = "IcindekilerGör";
+}
+
+<h2>IcindekilerGör</h2>
+@if (Session["kul_ad"] != null)
+{ 
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.malzemeler)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.malzemeler)
+            </td>
+            @if (Session["kul_ad"] != null)
+            {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.icin_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.icin_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.icin_id })
+            </td>
+            }
+        </tr>
+    }
+
+</table>

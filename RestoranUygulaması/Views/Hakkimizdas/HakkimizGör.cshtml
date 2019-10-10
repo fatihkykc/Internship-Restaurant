@@ -1,0 +1,33 @@
+﻿@model IEnumerable<RestoranUygulaması.Models.Hakkimizda>
+
+@{
+    ViewBag.Title = "HakkimizGör";
+}
+
+<h2>HakkimizGör</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.hakkimizdaki)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.hakkimizdaki)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.hak_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.hak_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.hak_id })
+        </td>
+    </tr>
+}
+
+</table>

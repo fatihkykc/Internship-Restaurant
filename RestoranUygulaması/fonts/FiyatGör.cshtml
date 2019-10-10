@@ -1,0 +1,27 @@
+﻿@model IEnumerable<RestoranUygulaması.Models.Fiyat>
+
+@{
+    ViewBag.Title = "FiyatGör";
+}
+
+<h2>FiyatGör</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.fiyat_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.fiyat_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.fiyat_id })
+        </td>
+    </tr>
+}
+
+</table>

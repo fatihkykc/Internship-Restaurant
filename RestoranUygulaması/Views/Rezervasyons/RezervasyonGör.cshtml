@@ -1,0 +1,51 @@
+﻿@model IEnumerable<RestoranUygulaması.Models.Rezervasyon>
+
+@{
+    ViewBag.Title = "RezervasyonGör";
+}
+
+<h2>RezervasyonGör</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.rez_ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rez_soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rez_eposta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rez_tel)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.rez_ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rez_soyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rez_eposta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rez_tel)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.rez_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.rez_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.rez_id })
+        </td>
+    </tr>
+}
+
+</table>

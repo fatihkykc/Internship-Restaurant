@@ -1,0 +1,26 @@
+﻿@model RestoranUygulaması.Models.Yemek
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Yemek</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.yemek_adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yemek_adi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.yem_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

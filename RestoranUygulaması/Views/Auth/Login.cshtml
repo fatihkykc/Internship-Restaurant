@@ -1,0 +1,54 @@
+﻿@model RestoranUygulaması.Models.LoginModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/Admin/css/Login/base.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+
+    <div class="login" style="width:350px !important;margin:0 auto; margin-top:200px;">
+
+        <div class="box-header">
+
+            <h2> Admin Panel Yönetimi</h2>
+
+        </div>
+
+
+        <div class="box">
+
+            <div class="notification tip"><span class="strong"> Admin Panel Giriş</span>@Html.ValidationSummary(false, "")</div>
+
+            @using (Html.BeginForm("Login", "Auth", FormMethod.Post))
+            {
+
+                <div class="form col">
+
+
+                    @Html.LabelFor(f => f.kul_eposta)
+                    @Html.TextBoxFor(f => f.kul_eposta, new { title = "Kullanıcı adınızı giriniz.", @Value = @ViewBag.user })<br />
+
+
+
+
+
+                    @Html.LabelFor(f => f.kul_sifre)
+                    @Html.PasswordFor(f => f.kul_sifre, new { title = "Kullanıcı şifrenizi giriniz.", @Value = @ViewBag.password })
+
+                    <button type="submit" class="small fr">Giriş</button><br class="cl" />
+
+
+
+                </div>
+
+            }
+        </div>
+
+    </div>
+
+</body>
+</html>

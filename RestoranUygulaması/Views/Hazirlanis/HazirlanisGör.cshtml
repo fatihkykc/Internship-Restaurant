@@ -1,0 +1,39 @@
+﻿@model IEnumerable<RestoranUygulaması.Models.Hazirlanis>
+
+@{
+    ViewBag.Title = "HazirlanisGör";
+}
+
+<h2>HazirlanisGör</h2>
+@if (Session["kul_ad"] != null)
+{
+    <p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tarif)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.tarif)
+    </td>
+    @if (Session["kul_ad"] != null)
+    {
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.hazir_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.hazir_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.hazir_id })
+        </td>
+    }
+</tr>
+}
+
+</table>
